@@ -1,0 +1,151 @@
+<section class="about-hero">
+  <div class="about-content">
+    <h1>About VM Future Tech Pvt Ltd</h1>
+    <p class="subtitle">Leading Software Solutions for Modern Businesses</p>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="about-container">
+    <h2>Our Story</h2>
+    <p>
+      Founded with a vision to empower businesses through innovative technology, VM Future Tech Pvt Ltd has been at the forefront of digital transformation. With over a decade of experience, we've helped hundreds of companies achieve their goals through carefully crafted software solutions.
+    </p>
+    <p>
+      Our team is passionate about delivering excellence, innovation, and reliability in every project we undertake.
+    </p>
+  </div>
+</section>
+
+<section class="about-section alt">
+  <div class="about-container">
+    <h2>Our Mission</h2>
+    <p>
+      To provide cutting-edge software solutions that solve complex business challenges and drive growth and success for our clients.
+    </p>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="about-container">
+    <h2>Our Values</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Innovation</h3>
+        <p>We constantly push boundaries and embrace new technologies to deliver forward-thinking solutions.</p>
+      </div>
+      <div class="value-card">
+        <h3>Excellence</h3>
+        <p>We maintain the highest standards of quality in everything we do.</p>
+      </div>
+      <div class="value-card">
+        <h3>Integrity</h3>
+        <p>We build trust through transparency, honesty, and accountability.</p>
+      </div>
+      <div class="value-card">
+        <h3>Collaboration</h3>
+        <p>We work closely with our clients to understand and exceed their expectations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="stats-container">
+    <div class="stat">
+      <h3>500+</h3>
+      <p>Projects Delivered</p>
+    </div>
+    <div class="stat">
+      <h3>200+</h3>
+      <p>Happy Clients</p>
+    </div>
+    <div class="stat">
+      <h3>50+</h3>
+      <p>Team Members</p>
+    </div>
+    <div class="stat">
+      <h3>10+</h3>
+      <p>Years in Business</p>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="about-container">
+    <h2>Our Office & Team</h2>
+    <p class="section-intro">Experience our modern workspace and talented developers</p>
+    <div class="office-gallery">
+      <div class="gallery-item" (click)="openGalleryModal(0)">
+        <div class="gallery-image office-1">
+          <img src="/assets/office1.jpg" alt="Development Hub" class="gallery-img" />
+          <div class="image-overlay">
+            <span class="view-text">View Details</span>
+          </div>
+        </div>
+        <p>State-of-the-art development workspace with modern infrastructure</p>
+      </div>
+      <div class="gallery-item" (click)="openGalleryModal(1)">
+        <div class="gallery-image office-2">
+          <img src="/assets/office2.jpeg" alt="Team Collaboration" class="gallery-img" />
+          <div class="image-overlay">
+            <span class="view-text">View Details</span>
+          </div>
+        </div>
+        <p>Collaborative environment where ideas come to life</p>
+      </div>
+      <div class="gallery-item" (click)="openGalleryModal(2)">
+        <div class="gallery-image office-3">
+          <img src="/assets/developer-pics.jpg" alt="Innovation Lab" class="gallery-img" />
+          <div class="image-overlay">
+            <span class="view-text">View Details</span>
+          </div>
+        </div>
+        <p>Cutting-edge technology and research facilities</p>
+      </div>
+      <div class="gallery-item" (click)="openGalleryModal(3)">
+        <div class="gallery-image office-4">
+          <img src="/assets/developer-pics2.jpg" alt="Developer Team" class="gallery-img" />
+          <div class="image-overlay">
+            <span class="view-text">View Details</span>
+          </div>
+        </div>
+        <p>Expert developers working on world-class solutions</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="about-container">
+    <h2>Our Leadership Team</h2>
+    <p class="section-intro">Meet the visionary leaders driving innovation at VM Future Tech Pvt Ltd</p>
+    <div class="team-grid">
+      <div class="team-card" *ngFor="let member of teamMembers">
+        <div class="team-avatar">
+          <img *ngIf="member.image" [src]="member.image" [alt]="member.name" class="team-image" />
+          <div *ngIf="!member.image" class="team-icon">{{ member.icon }}</div>
+        </div>
+        <h3>{{ member.name }}</h3>
+        <p class="team-role">{{ member.role }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Modal -->
+<div class="gallery-modal" *ngIf="selectedGalleryIndex !== null" (click)="closeGalleryModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeGalleryModal()">✕</button>
+    <img [src]="galleryImages[selectedGalleryIndex].src" [alt]="galleryImages[selectedGalleryIndex].alt" class="modal-image" />
+    <div class="modal-info">
+      <h3>{{ galleryImages[selectedGalleryIndex].title }}</h3>
+      <p>{{ galleryImages[selectedGalleryIndex].description }}</p>
+    </div>
+    <div class="modal-nav">
+      <button (click)="prevImage()" [disabled]="selectedGalleryIndex === 0">← Previous</button>
+      <span>{{ selectedGalleryIndex + 1 }} / {{ galleryImages.length }}</span>
+      <button (click)="nextImage()" [disabled]="selectedGalleryIndex === galleryImages.length - 1">Next →</button>
+    </div>
+  </div>
+</div>

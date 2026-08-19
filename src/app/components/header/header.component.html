@@ -1,0 +1,30 @@
+<header class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <app-logo></app-logo>
+    </div>
+    <nav class="nav-menu" [class.active]="menuOpen">
+      <div class="nav-links">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()" class="nav-link">
+          Home
+        </a>
+        <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()" class="nav-link">
+          About
+        </a>
+        <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()" class="nav-link">
+          Services
+        </a>
+        <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()" class="nav-link">
+          Contact
+        </a>
+        <button class="nav-btn">Get Started</button>
+      </div>
+    </nav>
+
+    <div class="hamburger" [class.active]="menuOpen" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>

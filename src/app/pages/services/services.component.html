@@ -1,0 +1,63 @@
+<section class="services-hero">
+  <div class="services-content">
+    <h1>Our Services</h1>
+    <p class="subtitle">Comprehensive Solutions for Every Business Need</p>
+  </div>
+</section>
+
+<section class="services-list">
+  <div class="services-container">
+    <div class="service-item" *ngFor="let service of services">
+      <div class="service-card">
+        <div class="service-icon-large">{{ service.icon }}</div>
+        <h2>{{ service.title }}</h2>
+        <p class="service-description">{{ service.description }}</p>
+        <div class="service-features">
+          <h4>Key Features:</h4>
+          <ul>
+            <li *ngFor="let feature of service.features">{{ feature }}</li>
+          </ul>
+        </div>
+        <button class="learn-btn">Learn More</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="process-container">
+    <h2>Our Process</h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Discovery</h3>
+        <p>We understand your business goals and requirements</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Planning</h3>
+        <p>Create comprehensive project plans and timelines</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Development</h3>
+        <p>Build robust solutions with best practices</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Testing</h3>
+        <p>Rigorous testing ensures quality and reliability</p>
+      </div>
+      <div class="step">
+        <div class="step-number">5</div>
+        <h3>Deployment</h3>
+        <p>Seamless launch and production deployment</p>
+      </div>
+      <div class="step">
+        <div class="step-number">6</div>
+        <h3>Support</h3>
+        <p>Ongoing support and maintenance services</p>
+      </div>
+    </div>
+  </div>
+</section>

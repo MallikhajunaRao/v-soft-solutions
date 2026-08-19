@@ -1,0 +1,26 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.08);
+  }
+
+  .logo-image {
+    height: 100%;
+    max-width: 450px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: filter 0.3s ease;
+  }
+
+  &:hover .logo-image {
+    filter: drop-shadow(0 4px 12px rgba(229, 57, 53, 0.2));
+  }
+}
