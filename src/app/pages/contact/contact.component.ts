@@ -62,12 +62,12 @@ export class ContactComponent {
     {
       icon: '📞',
       title: 'Phone',
-      details: '+91 9505-562-6509 | +91 8850-160-16633 | +91 7032-710-886'
+      details: '+91 9505-562-650'
     },
     {
       icon: '📧',
       title: 'Email',
-      details: 'info@vmfuturetech.com | support@vmfuturetech.com'
+      details: 'hr@vmfuturetechcom.com | support@vmfuturetechcom.com'
     },
     {
       icon: '⏰',

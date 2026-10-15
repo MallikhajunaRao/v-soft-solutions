@@ -21,10 +21,10 @@ export class FooterComponent {
 
   contactDetails = {
     phone1: '+91 9505-562-6509',
-    phone2: '+91 8850-160-16633',
-    phone3: '+91 7032-710-886',
-    email1: 'info@vmfuturetech.com',
-    email2: 'support@vmfuturetech.com',
+    // phone2: '+91 8850-160-16633',
+    // phone3: '+91 7032-710-886',
+    email1: 'hr@vmfuturetechcom.com',
+    // email2: 'support@vmfuturetech.com',
     address: 'Andrapradesh, India - 522413',
     hours: 'Monday - Friday: 9:00 AM - 6:00 PM IST'
   };
