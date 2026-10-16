@@ -5,18 +5,13 @@
         <app-logo></app-logo>
       </div>
       <p>Transforming your ideas into innovative digital solutions for business success.</p>
-      <div class="social-links">
-        <a *ngFor="let social of social" [href]="social.href" class="social-link" title="{{ social.label }}">
-          {{ social.icon }}
-        </a>
-      </div>
     </div>
 
     <div class="footer-section">
       <h4>Quick Links</h4>
       <ul>
         <li *ngFor="let link of links">
-          <a [href]="link.href">{{ link.label }}</a>
+          <a [routerLink]="link.href">{{ link.label }}</a>
         </li>
       </ul>
     </div>
@@ -24,23 +19,20 @@
     <div class="footer-section">
       <h4>Services</h4>
       <ul>
-        <li><a href="#">Web Development</a></li>
-        <li><a href="#">Mobile Apps</a></li>
-        <li><a href="#">Cloud Solutions</a></li>
-        <li><a href="#">Data Analytics</a></li>
-        <li><a href="#">AI & ML</a></li>
+        <li><a routerLink="/services">Web Development</a></li>
+        <li><a routerLink="/services">Mobile Apps</a></li>
+        <li><a routerLink="/services">Cloud Solutions</a></li>
+        <li><a routerLink="/services">Data Analytics</a></li>
+        <li><a routerLink="/services">AI &amp; ML</a></li>
       </ul>
     </div>
 
     <div class="footer-section">
       <h4>Contact Info</h4>
-      <p>� {{ contactDetails.address }}</p>
-      <p>📞 {{ contactDetails.phone1 }}</p>
-      <p>📞 {{ contactDetails.phone2 }}</p>
-      <p>📞 {{ contactDetails.phone3 }}</p>
-      <p>📧 {{ contactDetails.email1 }}</p>
-      <p>📧 {{ contactDetails.email2 }}</p>
-      <p>⏰ {{ contactDetails.hours }}</p>
+      <p>{{ contactDetails.address }}</p>
+      <p><a [href]="'tel:' + contactDetails.phone1">{{ contactDetails.phone1 }}</a></p>
+      <p><a [href]="'mailto:' + contactDetails.email1">{{ contactDetails.email1 }}</a></p>
+      <p>{{ contactDetails.hours }}</p>
     </div>
   </div>
 

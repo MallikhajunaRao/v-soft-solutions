@@ -190,3 +190,113 @@
     }
   }
 }
+
+.navbar {
+  height: 76px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #e4ebeb;
+  box-shadow: 0 5px 20px rgba(20, 59, 80, 0.045);
+
+  .navbar-container {
+    max-width: 1240px;
+    padding: 0 30px;
+  }
+
+  .nav-menu {
+    justify-content: flex-end;
+  }
+
+  .nav-links {
+    justify-content: flex-end;
+    gap: 6px;
+    width: auto;
+  }
+
+  .nav-link {
+    padding: 10px 13px;
+    border-radius: 5px;
+    color: #536875;
+    font-size: 0.92rem;
+
+    &:hover,
+    &.active {
+      background: #edf6f4;
+      color: var(--brand-dark);
+      border-bottom: 0;
+      transform: none;
+    }
+  }
+
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 16px;
+    margin-left: 12px;
+    border-radius: 5px;
+    background: var(--brand-dark);
+    box-shadow: none;
+    font-size: 0.9rem;
+    text-decoration: none;
+
+    &:hover {
+      background: var(--brand);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(8, 127, 140, 0.2);
+    }
+  }
+
+  .hamburger {
+    border: 0;
+    background: transparent;
+    border-radius: 5px;
+
+    span {
+      background: var(--text-dark);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .navbar-container {
+      padding: 0 16px;
+    }
+
+    .nav-menu {
+      top: 76px;
+      left: 0;
+      display: flex;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-8px);
+      padding: 12px 16px 18px;
+      background: white;
+      box-shadow: 0 14px 22px rgba(20, 59, 80, 0.12);
+      transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+
+      &.active {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-links {
+      align-items: stretch;
+      gap: 3px;
+    }
+
+    .nav-link {
+      display: block;
+      width: 100%;
+      padding: 13px 12px;
+      border-bottom: 0;
+      text-align: left;
+    }
+
+    .nav-btn {
+      justify-content: center;
+      margin: 10px 0 0;
+    }
+  }
+}

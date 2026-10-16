@@ -1,22 +1,27 @@
-<!-- Hero Section -->
-<section class="hero">
-  <div class="hero-content">
-    <h1 class="hero-title">Welcome to VM Future Tech Pvt Ltd</h1>
-    <p class="hero-subtitle">Transforming Your Ideas Into Digital Reality</p>
-    <p class="hero-description">
-      We deliver cutting-edge software solutions that empower businesses to compete and thrive in the digital world.
-    </p>
+<section class="hero hero-carousel" aria-label="Featured services">
+  <div class="hero-content" *ngIf="slides[activeSlide] as slide" aria-live="polite">
+    <p class="hero-eyebrow">{{ slide.eyebrow }}</p>
+    <h1 class="hero-title">{{ slide.title }}</h1>
+    <p class="hero-description">{{ slide.description }}</p>
     <div class="hero-buttons">
-      <button class="btn btn-primary">Start Your Project</button>
-      <button class="btn btn-secondary">Learn More</button>
+      <a class="btn btn-primary" routerLink="/contact">Start a conversation <span aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-secondary" routerLink="/services">Explore our services</a>
+    </div>
+    <div class="slide-controls" aria-label="Hero carousel controls">
+      <button type="button" class="slide-arrow" aria-label="Previous slide" (click)="showSlide(activeSlide - 1)">&larr;</button>
+      <div class="slide-dots" aria-label="Choose a slide">
+        <button *ngFor="let item of slides; let index = index" type="button" [class.active]="index === activeSlide" [attr.aria-label]="'Show slide ' + (index + 1)" [attr.aria-current]="index === activeSlide ? 'true' : null" (click)="showSlide(index)"></button>
+      </div>
+      <button type="button" class="slide-arrow" aria-label="Next slide" (click)="showSlide(activeSlide + 1)">&rarr;</button>
+      <button type="button" class="slide-play" [attr.aria-label]="autoplayPaused ? 'Play automatic slides' : 'Pause automatic slides'" (click)="toggleAutoplay()">
+        {{ autoplayPaused ? 'Play' : 'Pause' }}
+      </button>
     </div>
   </div>
-  <div class="hero-image">
-    <div class="floating-shape">
-      <div class="logo-showcase">
-        <app-logo></app-logo>
-      </div>
-    </div>
+  <div class="hero-image" *ngIf="slides[activeSlide] as slide">
+    <img [src]="slide.image" [alt]="slide.imageAlt" />
+    <div class="image-note"><span class="note-mark">VM</span><span>Ideas into impact<br /><strong>VM Future Tech</strong></span></div>
+    <span class="image-index">0{{ activeSlide + 1 }} <span>/ 0{{ slides.length }}</span></span>
   </div>
 </section>
 
@@ -70,13 +75,13 @@
     <p class="section-subtitle">Visit us in Pidugurall, India</p>
     <div class="location-content">
       <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3823.8374719407607!2d78.3!3d17.36!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91d1234567%3A0x123456789abcdef!2sPidugurall!5e0!3m2!1sen!2sin!4v1234567890" width="100%" height="400" style="border:0; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps?q=Piduguralla,+Andhra+Pradesh,+India&output=embed" width="100%" height="400" style="border:0; border-radius: 8px; box-shadow: 0 10px 30px rgba(20, 59, 80, 0.12);" title="Map to our office in Piduguralla" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="location-info">
         <div class="info-card">
           <div class="info-icon">📍</div>
           <h3>Office Address</h3>
-          <p>Andrapradesh<br>India - 522413</p>
+          <p>Andhra Pradesh<br>India - 522413</p>
         </div>
         <div class="info-card">
           <div class="info-icon">🕐</div>
@@ -98,6 +103,6 @@
   <div class="cta-content">
     <h2>Ready to Transform Your Business?</h2>
     <p>Let's work together to build amazing software solutions</p>
-    <button class="btn btn-light">Get in Touch Today</button>
+    <a class="btn btn-light" routerLink="/contact">Get in Touch Today <span aria-hidden="true">&rarr;</span></a>
   </div>
 </section>

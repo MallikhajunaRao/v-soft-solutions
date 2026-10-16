@@ -127,3 +127,68 @@
     }
   }
 }
+
+.footer {
+  margin-top: 0;
+  padding: 62px 28px 25px;
+  background: #102b3e;
+  color: rgba(255, 255, 255, 0.72);
+
+  .footer-content {
+    max-width: 1240px;
+    grid-template-columns: 1.4fr 0.8fr 0.9fr 1.2fr;
+    gap: 38px;
+  }
+
+  .footer-section {
+    h4 {
+      color: #83d9d0;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    ul li a,
+    p a {
+      color: rgba(255, 255, 255, 0.74);
+
+      &:hover {
+        color: #8ce2d6;
+      }
+    }
+
+    .footer-logo ::ng-deep .logo-copy strong {
+      color: white;
+    }
+
+    .footer-logo ::ng-deep .logo-copy small {
+      color: rgba(255, 255, 255, 0.65);
+    }
+  }
+
+  .footer-bottom {
+    max-width: 1240px;
+    margin: 0 auto;
+    border-top-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.58);
+  }
+
+  @media screen and (max-width: 800px) {
+    .footer-content {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    padding: 42px 20px 22px;
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+  }
+}

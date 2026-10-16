@@ -67,7 +67,7 @@ export class ContactComponent {
     {
       icon: '📧',
       title: 'Email',
-      details: 'hr@vmfuturetechcom.com | support@vmfuturetechcom.com'
+      details: 'hr@vmfuturetechcom.com'
     },
     {
       icon: '⏰',

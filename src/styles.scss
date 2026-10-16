@@ -3,9 +3,9 @@
 /* CSS Variables - Modern Professional Theme */
 :root {
   /* Brand color - single unique color for the app */
-  --brand: #10b981;
-  --brand-light: #a7f3d0;
-  --brand-dark: #0b6f3a;
+  --brand: #087f8c;
+  --brand-light: #b9eee5;
+  --brand-dark: #143b50;
 
   /* Map legacy semantic variables to the single brand */
   --primary: var(--brand);
@@ -17,24 +17,24 @@
   --secondary-dark: var(--brand-dark);
   --secondary-light: var(--brand-light);
 
-  --accent: var(--brand);
-  --accent-light: var(--brand-light);
+  --accent: #e5a64a;
+  --accent-light: #f8e4bd;
   /* Legacy aliases (mapped to brand) */
   --primary-blue: var(--brand);
   --secondary-blue: var(--brand);
   --text-gray: #6b7280;
   
   /* Neutral Colors */
-  --text-dark: #1f2937;
-  --text-medium: #374151;
-  --text-light: #6b7280;
-  --text-lighter: #9ca3af;
+  --text-dark: #163247;
+  --text-medium: #3c5361;
+  --text-light: #627784;
+  --text-lighter: #8798a2;
   
   /* Background Colors */
   --bg-white: #ffffff;
-  --bg-light: #f9fafb;
-  --bg-lighter: #f3f4f6;
-  --bg-dark: #111827;
+  --bg-light: #f2f7f6;
+  --bg-lighter: #e7efed;
+  --bg-dark: #102b3e;
   
   /* Border Colors */
   --border-light: #e5e7eb;
@@ -89,8 +89,6 @@
 }
 
 /* Font Imports */
-@import url('https://fonts.googleapis.com/css2?family=inter:wght@300;400;500;600;700;800&family=poppins:wght@600;700;800&display=swap');
-
 /* Reset */
 * {
   margin: 0;
@@ -110,10 +108,8 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background: linear-gradient(180deg, #eefcf3 0%, #f3fff7 45%, #ffffff 100%);
-  background-attachment: fixed;
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  background: #f7f9f8;
   color: var(--text-dark);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -136,7 +132,7 @@ h6 {
 
 h1 {
   font-size: var(--font-5xl);
-  font-family: 'Poppins', sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
@@ -600,5 +596,106 @@ blockquote {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+/* Shared page polish */
+body {
+  background-image: linear-gradient(115deg, rgba(8, 127, 140, 0.025), transparent 45%);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.about-hero,
+.services-hero,
+.contact-hero {
+  background: linear-gradient(115deg, #143b50 0%, #087f8c 70%, #36a99b 100%) !important;
+  padding: 88px 24px !important;
+  text-align: left !important;
+  position: relative;
+  overflow: hidden;
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 {
+    color: #fff !important;
+    font-size: clamp(2.2rem, 5vw, 3.6rem) !important;
+    max-width: 760px;
+  }
+
+  .subtitle {
+    color: rgba(255, 255, 255, 0.82) !important;
+    max-width: 650px;
+  }
+}
+
+.about-hero::after,
+.services-hero::after,
+.contact-hero::after {
+  content: '';
+  position: absolute;
+  right: 7%;
+  top: -120px;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  box-shadow: 0 0 0 36px rgba(255, 255, 255, 0.035), 0 0 0 72px rgba(255, 255, 255, 0.025);
+}
+
+.about-section,
+.services-list,
+.contact-section,
+.process-section,
+.location-section,
+.features,
+.services,
+.clients {
+  padding-top: 76px !important;
+  padding-bottom: 76px !important;
+}
+
+.about-section {
+  max-width: none !important;
+
+  .about-container {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+  }
+}
+
+.clients {
+  padding-top: 76px !important;
+  padding-bottom: 76px !important;
+}
+
+.contact-section .form-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.value-card,
+.team-card,
+.service-card,
+.step,
+.info-card,
+.feature-card,
+.client-card,
+.form-section {
+  border-radius: 8px !important;
+  box-shadow: 0 12px 32px rgba(20, 59, 80, 0.075) !important;
+}
+
+.gallery-item:focus-visible,
+.nav-link:focus-visible,
+.btn:focus-visible,
+.learn-btn:focus-visible {
+  outline: 3px solid #e5a64a !important;
+  outline-offset: 3px;
 }
 

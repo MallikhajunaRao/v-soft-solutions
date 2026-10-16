@@ -1,15 +1,74 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LogoComponent } from '../../components/logo/logo.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, LogoComponent],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
+  activeSlide = 0;
+  autoplayPaused = false;
+  private slideTimer?: ReturnType<typeof setInterval>;
+
+  slides = [
+    {
+      eyebrow: 'Technology that moves business forward',
+      title: 'Build what comes next.',
+      description: 'Thoughtful software, dependable engineering, and a team that stays with you from first idea to launch.',
+      image: '/assets/office1.jpg',
+      imageAlt: 'A modern software development workspace'
+    },
+    {
+      eyebrow: 'People-first, product-minded',
+      title: 'Make every idea useful.',
+      description: 'We turn ambitious plans into clear, intuitive digital experiences your customers will want to use.',
+      image: '/assets/office2.jpeg',
+      imageAlt: 'A team collaborating around a project'
+    },
+    {
+      eyebrow: 'Your technology partner',
+      title: 'Grow with confidence.',
+      description: 'From web and mobile to cloud and data, get practical solutions designed around the way your business works.',
+      image: '/assets/developer-pics.jpg',
+      imageAlt: 'Developers working together on a digital product'
+    }
+  ];
+
+  ngOnInit() {
+    this.startAutoplay();
+  }
+
+  ngOnDestroy() {
+    this.stopAutoplay();
+  }
+
+  showSlide(index: number) {
+    this.activeSlide = (index + this.slides.length) % this.slides.length;
+  }
+
+  toggleAutoplay() {
+    this.autoplayPaused = !this.autoplayPaused;
+    this.autoplayPaused ? this.stopAutoplay() : this.startAutoplay();
+  }
+
+  private startAutoplay() {
+    this.stopAutoplay();
+    if (!this.autoplayPaused) {
+      this.slideTimer = setInterval(() => this.showSlide(this.activeSlide + 1), 6000);
+    }
+  }
+
+  private stopAutoplay() {
+    if (this.slideTimer) {
+      clearInterval(this.slideTimer);
+      this.slideTimer = undefined;
+    }
+  }
+
   features = [
     {
       icon: '🚀',

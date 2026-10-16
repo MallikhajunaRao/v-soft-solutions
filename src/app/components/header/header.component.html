@@ -3,7 +3,7 @@
     <div class="navbar-brand">
       <app-logo></app-logo>
     </div>
-    <nav class="nav-menu" [class.active]="menuOpen">
+    <nav id="primary-navigation" class="nav-menu" [class.active]="menuOpen">
       <div class="nav-links">
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()" class="nav-link">
           Home
@@ -17,14 +17,14 @@
         <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()" class="nav-link">
           Contact
         </a>
-        <button class="nav-btn">Get Started</button>
+        <a class="nav-btn" routerLink="/contact" (click)="closeMenu()">Get started <span aria-hidden="true">&rarr;</span></a>
       </div>
     </nav>
 
-    <div class="hamburger" [class.active]="menuOpen" (click)="toggleMenu()">
+    <button type="button" class="hamburger" [class.active]="menuOpen" [attr.aria-expanded]="menuOpen" aria-controls="primary-navigation" [attr.aria-label]="menuOpen ? 'Close navigation menu' : 'Open navigation menu'" (click)="toggleMenu()">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
   </div>
 </header>

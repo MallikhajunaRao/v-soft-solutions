@@ -76,7 +76,7 @@
     <h2>Our Office & Team</h2>
     <p class="section-intro">Experience our modern workspace and talented developers</p>
     <div class="office-gallery">
-      <div class="gallery-item" (click)="openGalleryModal(0)">
+      <div class="gallery-item" role="button" tabindex="0" aria-label="View development workspace photo" (click)="openGalleryModal(0)" (keydown.enter)="openGalleryModal(0)" (keydown.space)="$event.preventDefault(); openGalleryModal(0)">
         <div class="gallery-image office-1">
           <img src="/assets/office1.jpg" alt="Development Hub" class="gallery-img" />
           <div class="image-overlay">
@@ -85,7 +85,7 @@
         </div>
         <p>State-of-the-art development workspace with modern infrastructure</p>
       </div>
-      <div class="gallery-item" (click)="openGalleryModal(1)">
+      <div class="gallery-item" role="button" tabindex="0" aria-label="View team collaboration photo" (click)="openGalleryModal(1)" (keydown.enter)="openGalleryModal(1)" (keydown.space)="$event.preventDefault(); openGalleryModal(1)">
         <div class="gallery-image office-2">
           <img src="/assets/office2.jpeg" alt="Team Collaboration" class="gallery-img" />
           <div class="image-overlay">
@@ -94,7 +94,7 @@
         </div>
         <p>Collaborative environment where ideas come to life</p>
       </div>
-      <div class="gallery-item" (click)="openGalleryModal(2)">
+      <div class="gallery-item" role="button" tabindex="0" aria-label="View innovation lab photo" (click)="openGalleryModal(2)" (keydown.enter)="openGalleryModal(2)" (keydown.space)="$event.preventDefault(); openGalleryModal(2)">
         <div class="gallery-image office-3">
           <img src="/assets/developer-pics.jpg" alt="Innovation Lab" class="gallery-img" />
           <div class="image-overlay">
@@ -103,7 +103,7 @@
         </div>
         <p>Cutting-edge technology and research facilities</p>
       </div>
-      <div class="gallery-item" (click)="openGalleryModal(3)">
+      <div class="gallery-item" role="button" tabindex="0" aria-label="View developer team photo" (click)="openGalleryModal(3)" (keydown.enter)="openGalleryModal(3)" (keydown.space)="$event.preventDefault(); openGalleryModal(3)">
         <div class="gallery-image office-4">
           <img src="/assets/developer-pics2.jpg" alt="Developer Team" class="gallery-img" />
           <div class="image-overlay">
@@ -134,9 +134,9 @@
 </section>
 
 <!-- Gallery Modal -->
-<div class="gallery-modal" *ngIf="selectedGalleryIndex !== null" (click)="closeGalleryModal()">
+<div class="gallery-modal" *ngIf="selectedGalleryIndex !== null" role="dialog" aria-modal="true" aria-label="Office photo gallery" (click)="closeGalleryModal()">
   <div class="modal-content" (click)="$event.stopPropagation()">
-    <button class="close-btn" (click)="closeGalleryModal()">✕</button>
+    <button class="close-btn" aria-label="Close photo gallery" (click)="closeGalleryModal()">✕</button>
     <img [src]="galleryImages[selectedGalleryIndex].src" [alt]="galleryImages[selectedGalleryIndex].alt" class="modal-image" />
     <div class="modal-info">
       <h3>{{ galleryImages[selectedGalleryIndex].title }}</h3>

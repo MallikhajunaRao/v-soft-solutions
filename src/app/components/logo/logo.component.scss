@@ -1,26 +1,60 @@
 .logo-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 70px;
+  justify-content: flex-start;
+  gap: 11px;
+  height: 52px;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s ease;
 
   &:hover {
-    transform: scale(1.08);
+    transform: translateY(-1px);
   }
 
-  .logo-image {
-    height: 100%;
-    max-width: 450px;
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-    transition: filter 0.3s ease;
+  .logo-mark {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    border-radius: 13px 5px 13px 5px;
+    background: linear-gradient(145deg, #0a9dac, #1453a3);
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0;
+    box-shadow: 0 5px 12px rgba(20, 83, 163, 0.2);
+
+    span + span {
+      position: absolute;
+      right: 7px;
+      bottom: 5px;
+      color: #82ece0;
+      font-size: 12px;
+    }
   }
 
-  &:hover .logo-image {
-    filter: drop-shadow(0 4px 12px rgba(229, 57, 53, 0.2));
+  .logo-copy {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+
+    strong {
+      color: #153149;
+      font-size: 15px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    small {
+      margin-top: 4px;
+      color: #6a7f8c;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
   }
 }
